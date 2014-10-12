@@ -1,0 +1,146 @@
+<table id="ch8">
+    <tr>
+        <th>Opcode</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td class="opcode"><code>0NNN</code></td>
+        <td>Execute machine language subroutine at address NNN</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>00E0</code></td>
+        <td>Clear the screen</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>00EE</code></td>
+        <td>Return from a subroutine</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>1NNN</code></td>
+        <td>Jump to address NNN</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>2NNN</code></td>
+        <td>Execute subroutine starting at address NNN</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>3XNN</code></td>
+        <td>Skip the following instruction if the value of register VX equals NN</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>4XNN</code></td>
+        <td>Skip the following instruction if the value of register VX is not equal to NN</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>5XY0</code></td>
+        <td>Skip the following instruction if the value of register VX is equal to the value of register VY</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>6XNN</code></td>
+        <td>Store number NN in register VX</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>7XNN</code></td>
+        <td>Add the value NN to register VX</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XY0</code></td>
+        <td>Store the value of register VY in register VX</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XY1</code></td>
+        <td>Set VX to VX OR VY</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XY2</code></td>
+        <td>Set VX to VX AND VY</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XY3</code></td>
+        <td>Set VX to VX XOR VY</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XY4</code></td>
+        <td>Add the value of register VY to register VX<br />Set VF to 01 if a carry occurs<br />Set VF to 00 if a carry does not occur</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XY5</code></td>
+        <td>Subtract the value of register VY from register VX<br />Set VF to 00 if a borrow occurs<br />Set VF to 01 if a borrow does not occur</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XY6</code></td>
+        <td>Store the value of register VY shifted right one bit in register VX<br />Set register VF to the least significant bit prior to the shift</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XY7</code></td>
+        <td>Set register VX to the value of VY minus VX<br />Set VF to 00 if a borrow occurs<br />Set VF to 01 if a borrow does not occur</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>8XYE</code></td>
+        <td>Store the value of register VY shifted left one bit in register VX<br />Set register VF to the most significant bit prior to the shift</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>9XY0</code></td>
+        <td>Skip the following instruction if the value of register VX is not equal to the value of register VY</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>ANNN</code></td>
+        <td>Store memory address NNN in register I</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>BNNN</code></td>
+        <td>Jump to address NNN + V0</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>CXNN</code></td>
+        <td>Set VX to a random number with a mask of NN</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>DXYN</code></td>
+        <td>Draw a sprite at position VX, VY with N bytes of sprite data starting at the address stored in I<br />Set VF to 01 if any set pixels are changed to unset, and 00 otherwise</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>EX9E</code></td>
+        <td>Skip the following instruction if the key corresponding to the hex value currently stored in register VX is pressed</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>EXA1</code></td>
+        <td>Skip the following instruction if the key corresponding to the hex value currently stored in register VX is not pressed</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX07</code></td>
+        <td>Store the current value of the delay timer in register VX</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX0A</code></td>
+        <td>Wait for a keypress and store the result in register VX</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX15</code></td>
+        <td>Set the delay timer to the value of register VX</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX18</code></td>
+        <td>Set the sound timer to the value of register VX</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX1E</code></td>
+        <td>Add the value stored in register VX to register I</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX29</code></td>
+        <td>Set I to the memory address of the sprite data corresponding to the hexadecimal digit stored in register VX</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX33</code></td>
+        <td>Store the binary-coded decimal equivalent of the value stored in register VX at addresses I, I+1, and I+2</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX55</code></td>
+        <td>Store the values of registers V0 to VX inclusive in memory starting at address I<br />I is set to I + X + 1 after operation</td>
+    </tr>
+    <tr>
+        <td class="opcode"><code>FX65</code></td>
+        <td>Fill registers V0 to VX inclusive with the values stored in memory starting at address I<br />I is set to I + X + 1 after operation</td>
+    </tr>
+</table>
