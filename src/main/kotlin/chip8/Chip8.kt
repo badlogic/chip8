@@ -91,3 +91,17 @@ fun disassemble(vmState: VmState): String {
     }
     return decoder.toString()
 }
+
+fun disassemble(vmState: VmState, pc: Int, numInstsBeforeAfter: Int): String {
+    val decoder = Disassembler()
+    for(addr in (Math.max(0x200, pc-numInstsBeforeAfter*2))..(pc+numInstsBeforeAfter*2) step 2) {
+        val msb = vmState.ram[addr]
+        val lsb = vmState.ram[addr + 1]
+        if(addr == pc)
+            decoder.builder.append("-> ")
+        else
+            decoder.builder.append("   ");
+        decode(decoder, addr, msb, lsb)
+    }
+    return decoder.toString()
+}

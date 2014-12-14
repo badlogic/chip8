@@ -4,7 +4,7 @@ class Disassembler(): Decoder {
     val builder = StringBuilder()
     fun Any?.unit() {}
     override fun before(opCode: Int, address: Int) = builder.append("addr: 0x${address.hex}, op: 0x${opCode.hex}, ").unit()
-    override fun unknown(opCode: Int, address: Int) = builder.append("Unknown opcode addr: 0x${address.hex}, op: 0x${opCode.hex}").unit()
+    override fun unknown(opCode: Int, address: Int) = builder.line("Unknown opcode addr: 0x${address.hex}, op: 0x${opCode.hex}").unit()
     override fun clear() = builder.line("clear")
     override fun ret() = builder.line("ret")
     override fun jmp(address: Int) = builder.line("jmp 0x${address.hex}")
